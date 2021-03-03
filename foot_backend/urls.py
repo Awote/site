@@ -4,5 +4,5 @@ from rest_framework.routers import DefaultRouter
 route = DefaultRouter
 urlpatterns = [
     url('image',Test),
-    url('users/create',Registr.as_view())
+    url('users/create',Registr.post)
 ]

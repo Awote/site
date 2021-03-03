@@ -19,13 +19,14 @@ def Test(request):
 
     path = default_storage.save('tes_video.MOV', ContentFile(data.read()))
     tmp_file = os.path.join(settings.MEDIA_ROOT, path)
-    return Response({'GFXHJG':'GHJLK'})
+    return Response({'Video':'Send'})
 
 
 
 class Registr(APIView):
+    @api_view(['POST'])
     def post(self,request):
-        print(request.query_params)
+
         serializer = UserSeria(data=request.query_params)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
