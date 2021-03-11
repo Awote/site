@@ -1,8 +1,9 @@
-from kek.views import Test,REG
+from kek.views import Test,Registr
 from django.conf.urls import url
-from rest_framework.routers import DefaultRouter
-route = DefaultRouter
+from rest_framework.routers import SimpleRouter
+route = SimpleRouter
 urlpatterns = [
-    url('image',Test),
-    url('users/create',REG)
+    url(r'image',Test),
+    url(r'users/create',Registr.as_view())
 ]
+# urlpatterns=route.urls

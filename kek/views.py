@@ -11,7 +11,7 @@ from django.conf import settings
 from rest_framework.views import APIView
 from kek.serialization import UserSeria
 # Create your views here.
-@api_view(['POST'])
+
 def Test(request):
 
     # print(type(request.FILES['profile']))
@@ -23,13 +23,13 @@ def Test(request):
 
 
 
-# class Registr(APIView):
-@api_view(['POST'])
-def REG(request):
+class Registr(APIView):
+# @api_view(['GET'])
+    def post(self,request):
 
-    serializer = UserSeria(data=request.query_params)
-    if serializer.is_valid(raise_exception=True):
-        serializer.save()
-        return Response({'Greate user regist':'True'})
-    else:
-       return Response({"Error":"CHECK"})
+        serializer = UserSeria(data=request.query_params)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response({'Greate user regist':'True'})
+        else:
+           return Response({"Error":"CHECK"})
